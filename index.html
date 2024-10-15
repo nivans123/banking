@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Banking System</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      header {
+        background: url("https://s.yimg.com/ny/api/res/1.2/WN3rfmBA5VvofTSHQtnt9A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/gobankingrates_644/8568c31625dea6e5aa8f75163bedfd92") no-repeat center
+          center/cover;
+        padding: 50px;
+        color: white;
+      }
+
+      header h1 {
+        font-size: 48px;
+        margin: 0;
+      }
+
+      header p {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+
+      .account-section {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin: 20px auto;
+      }
+
+      .account-section h2 {
+        margin-bottom: 20px;
+      }
+
+      #balance {
+        font-weight: bold;
+      }
+
+      .buttons {
+        margin-top: 20px;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .deposit {
+        background-color: blue;
+        color: white;
+      }
+
+      .withdraw {
+        background-color: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Simple Banking System</h1>
+        <p>Manage your finances easily with our intuitive banking system.</p>
+      </header>
+      <main>
+        <section class="account-section">
+          <h2>Account Details</h2>
+          <p>Account Balance: <span id="balance">$0</span></p>
+          <div class="buttons">
+            <button id="deposit-btn" class="btn deposit">Deposit $100</button>
+            <button id="withdraw-btn" class="btn withdraw">Withdraw $50</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      let balance = 0;
+
+      document.getElementById("deposit-btn").addEventListener("click", () => {
+        balance += 100;
+        updateBalance();
+      });
+
+      document.getElementById("withdraw-btn").addEventListener("click", () => {
+        if (balance >= 50) {
+          balance -= 50;
+          updateBalance();
+        } else {
+          alert("Insufficient balance");
+        }
+      });
+
+      function updateBalance() {
+        document.getElementById("balance").textContent = `$${balance}`;
+      }
+    </script>
+  </body>
+</html>
